@@ -18,9 +18,9 @@ public class FrontControllerServletV1 extends HttpServlet {
     private FrontControllerServletV1() {
         controllerMap.put("/front-controller/v1/members/new-form", new MemberFormControllerV1());
         controllerMap.put("/front-controller/v1/members/save", new MemberFormControllerV1());
-        controllerMap.put("/front-controller/v1/members/members", new MemberFormControllerV1());
+        controllerMap.put("/front-controller/v1/members", new MemberFormControllerV1());
     }
-    
+
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String requestURI = request.getRequestURI();
