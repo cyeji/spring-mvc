@@ -1,7 +1,9 @@
 package hello.servlet.domain.member;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import hello.servlet.v1.domain.member.Member;
+import hello.servlet.v1.domain.member.MemberRepository;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
@@ -13,14 +15,14 @@ class MemberRepositoryTest {
     MemberRepository memberRepository = MemberRepository.getInstance();
 
     @AfterEach
-    void afterEach(){
+    void afterEach() {
         memberRepository.clearStore();
     }
 
     @Test
-    void save(){
+    void save() {
         // given
-        Member member = Member.of("hello",20);
+        Member member = Member.of("hello", 20);
         // when
         Member saveMember = memberRepository.save(member);
         // then
@@ -28,10 +30,10 @@ class MemberRepositoryTest {
         assertEquals(findMember, saveMember);
     }
 
-    
+
     @Test
     @DisplayName("findAll")
-    void findAll () throws Exception {
+    void findAll() throws Exception {
         // given
         Member member1 = Member.of("member1", 20);
         Member member2 = Member.of("member2", 30);

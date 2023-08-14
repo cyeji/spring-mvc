@@ -6,9 +6,9 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="hello.servlet.domain.member.MemberRepository" %>
+<%@ page import="hello.servlet.v1.domain.member.MemberRepository" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="hello.servlet.domain.member.Member" %>
+<%@ page import="hello.servlet.v1.domain.member.Member" %>
 <%
     MemberRepository memberRepository = MemberRepository.getInstance();
     System.out.println("MemberSaveServlet.service");
