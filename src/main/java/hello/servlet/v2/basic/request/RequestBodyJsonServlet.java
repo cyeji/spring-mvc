@@ -10,14 +10,16 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StreamUtils;
 
 @Slf4j
+@RequiredArgsConstructor
 @WebServlet(name = "requestBodyJsonServlet", urlPatterns = "/request-body-json")
 public class RequestBodyJsonServlet extends HttpServlet {
 
-    private ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper objectMapper;
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,7 +27,7 @@ public class RequestBodyJsonServlet extends HttpServlet {
         String messageBody = StreamUtils.copyToString(inputStream, StandardCharsets.UTF_8);
         log.info("messageBody: {}", messageBody);
 
-        HelloData helloData = mapper.readValue(messageBody, HelloData.class);
+        HelloData helloData = objectMapper.readValue(messageBody, HelloData.class);
         log.info("helloData.getName : {}", helloData.getUsername());
         log.info("helloData.getAge : {}", helloData.getAge());
     }
