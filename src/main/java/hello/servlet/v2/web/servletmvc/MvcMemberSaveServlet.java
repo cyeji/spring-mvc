@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "memberSaveServlet", urlPatterns = "/servlet/members/save")
+@WebServlet(name = "mvcMemberSaveServlet", urlPatterns = "/servlet/members/save")
 public class MvcMemberSaveServlet extends HttpServlet {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
