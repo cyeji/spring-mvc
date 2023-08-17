@@ -20,13 +20,14 @@ public class MyView {
         dispatcher.forward(request, response);
     }
 
-    public void render(Map<String, String> paramMap, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        modelToRequestAttribute(paramMap, request);
+    public void render(Map<String, Object> model, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        modelToRequestAttribute(model, request);
         RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
         dispatcher.forward(request, response);
     }
 
-    private static void modelToRequestAttribute(Map<String, String> paramMap, HttpServletRequest request) {
-        paramMap.forEach(request::setAttribute);
+    private static void modelToRequestAttribute(Map<String, Object> model, HttpServletRequest request) {
+        model.forEach(request::setAttribute);
     }
+
 }
